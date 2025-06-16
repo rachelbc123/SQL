@@ -1,0 +1,20 @@
+USE [SWE_Master]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE OR ALTER PROC [dbo].[getRegionListForDropdown]
+AS
+BEGIN
+	SET TRAN ISOLATION LEVEL READ COMMITTED
+
+	SELECT ID = sr.RegionID,
+           TextValue  = sr.RegionName
+	FROM dbo.SWE_Regions sr	
+	ORDER BY sr.RegionName
+END
+
+GO
+
+

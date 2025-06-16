@@ -1,0 +1,16 @@
+USE [SWE_Master]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[getCustomerListForDropdown]
+AS
+BEGIN
+	SET TRAN ISOLATION LEVEL READ COMMITTED
+
+	SELECT ID = sc.CustomerID,
+           TextValue  = sc.CustomerName
+	FROM dbo.SWE_Customers sc	
+	ORDER BY sc.CustomerName
+END

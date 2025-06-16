@@ -1,0 +1,18 @@
+USE [SWE_Master]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[getShotServiceTypeListForDropdown]
+AS
+BEGIN
+	SET TRAN ISOLATION LEVEL READ COMMITTED
+
+	SELECT ID = sst.ShotServiceTypeID,
+           TextValue  = sst.SiteName
+	FROM dbo.ShotServiceType sst	
+	ORDER BY sst.SiteName
+END
+
+

@@ -1,0 +1,18 @@
+USE [SWE_Master]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[getMarketingAreaListForDropdown]
+AS
+BEGIN
+	SET TRAN ISOLATION LEVEL READ COMMITTED
+
+	SELECT ID = sma.MarketingAreaID,
+           TextValue  = sma.MarketingAreaName
+	FROM dbo.SWE_MarketingArea sma	
+	ORDER BY sma.MarketingAreaName
+END
+
+
